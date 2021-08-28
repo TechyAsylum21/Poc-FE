@@ -13,7 +13,7 @@ export class StudentService {
   constructor(private http:HttpClient) { }
 
   getStudentList(): Observable<any> {
-    return this.http.get('http://localhost:8080/v1/trainers/list');
+    return this.http.get('https://poc-techy.herokuapp.com/v1/trainers/list');
   }
 
   createStudent(student: object): Observable<object> {
