@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentService } from '../student.service';
-import { Student } from '../student';
+import { PocModel } from '../PocModel';
 import { Observable,Subject } from "rxjs";
 
 import {FormControl,FormGroup,Validators} from '@angular/forms';
@@ -19,8 +19,8 @@ export class StudentListComponent implements OnInit {
   dtTrigger: Subject<any>= new Subject();
 
 
-  students: Observable<Student[]>;
-  student : Student=new Student();
+  students: Observable<PocModel[]>;
+  student : PocModel=new PocModel();
   deleteMessage=false;
   studentlist:any;
   isupdated = false;    
@@ -71,12 +71,12 @@ export class StudentListComponent implements OnInit {
   });
 
   updateStu(updstu){
-    this.student=new Student(); 
+    this.student=new PocModel(); 
    this.student.trainerId=this.StudentId.value;
    this.student.userName=this.StudentName.value;
    this.student.password=this.StudentEmail.value;
 
-
+ 
    
 
    this.studentservice.updateStudent(this.student.trainerId,this.student).subscribe(

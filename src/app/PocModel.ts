@@ -1,4 +1,4 @@
-export class Student {
+export class PocModel {
 
     trainerId:number;
     userName:String;

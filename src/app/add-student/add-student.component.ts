@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentService } from '../student.service';
 import {FormControl,FormGroup,Validators} from '@angular/forms';
-import { Student } from '../student';
+import { PocModel } from '../PocModel';
 @Component({
   selector: 'app-add-student',
   templateUrl: './add-student.component.html',
@@ -11,7 +11,7 @@ export class AddStudentComponent implements OnInit {
 
   constructor(private studentservice:StudentService) { }
 
-  student : Student=new Student();
+  student : PocModel=new PocModel();
   submitted = false;
 
   ngOnInit() {
@@ -19,15 +19,15 @@ export class AddStudentComponent implements OnInit {
   }
 
   studentsaveform=new FormGroup({
-    student_name:new FormControl('' , [Validators.required , Validators.minLength(5) ] ),
-    student_email:new FormControl('',[Validators.required,Validators.email]),
-    student_branch:new FormControl()
+    userName:new FormControl('' , [Validators.required , Validators.minLength(5) ] ),
+    password:new FormControl('',[Validators.required]),
+    
   });
 
   saveStudent(saveStudent){
-    this.student=new Student();   
-    this.student.userName=this.StudentName.value;
-    this.student.password=this.StudentEmail.value;
+    this.student=new PocModel();   
+    this.student.userName=this.userName.value;
+    this.student.password=this.password.value;
     
     this.submitted = true;
     this.save();
@@ -38,20 +38,18 @@ export class AddStudentComponent implements OnInit {
   save() {
     this.studentservice.createStudent(this.student)
       .subscribe(data => console.log(data), error => console.log(error));
-    this.student = new Student();
+    this.student = new PocModel();
   }
 
-  get StudentName(){
-    return this.studentsaveform.get('student_name');
+  get userName(){
+    return this.studentsaveform.get('userName');
   }
 
-  get StudentEmail(){
-    return this.studentsaveform.get('student_email');
+  get password(){
+    return this.studentsaveform.get('password');
   }
 
-  get StudentBranch(){
-    return this.studentsaveform.get('student_branch');
-  }
+
 
   addStudentForm(){
     this.submitted=false;

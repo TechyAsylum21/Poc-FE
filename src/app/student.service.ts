@@ -8,7 +8,6 @@ import { Observable } from 'rxjs';
 
 export class StudentService {
 
-  private baseUrl = 'http://localhost:8080/api/';
 
   constructor(private http:HttpClient) { }
 
@@ -17,15 +16,15 @@ export class StudentService {
   }
 
   createStudent(student: object): Observable<object> {
-    return this.http.post(`${this.baseUrl}`+'save-student', student);
+    return this.http.post('https://poc-techy.herokuapp.com/v1/trainer/details', student);
   }
 
   deleteStudent(id: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/delete-student/${id}`, { responseType: 'text' });
+    return this.http.delete('https://poc-techy.herokuapp.com/v1/deleteDetails/'+id, { responseType: 'text' });
   }
 
   getStudent(id: number): Observable<Object> {
-    return this.http.get(`${this.baseUrl}/student/${id}`);
+    return this.http.get('https://poc-techy.herokuapp.com/v1/trainer/detail/'+id);
   }
 
   updateStudent(id: number, value: any): Observable<Object> {

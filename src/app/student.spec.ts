@@ -1,7 +1,7 @@
-import { Student } from './student';
+import { PocModel } from './PocModel';
 
 describe('Student', () => {
   it('should create an instance', () => {
-    expect(new Student()).toBeTruthy();
+    expect(new PocModel()).toBeTruthy();
   });
 });

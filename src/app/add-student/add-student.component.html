@@ -5,42 +5,42 @@
     <div [hidden]="submitted" style="width: 400px;">
       <form [formGroup]="studentsaveform" #savestudent (ngSubmit)="saveStudent(saveStudent)">
           <div class="form-group">
-              <label for="name">Student Name</label>
-              <input type="text" class="form-control"  formControlName="student_name" data-toggle="tooltip" 
+              <label for="name">Trainer Name</label>
+              <input type="text" class="form-control"  formControlName="userName" data-toggle="tooltip" 
                  data-placement="right" title="Enter Student Name" >
-              <div class="alert alert-danger" *ngIf = "(StudentName.touched) && (StudentName.invalid)" 
+              <div class="alert alert-danger" *ngIf = "(userName.touched) && (userName.invalid)" 
                 style="margin-top: 5px;">
-                  <span *ngIf="StudentName.errors.required">Student Name is Required</span>
-                    <span *ngIf = "StudentName.errors.minlength"> 
+                  <span *ngIf="userName.errors.required">Student Name is Required</span>
+                    <span *ngIf = "userName.errors.minlength"> 
                         MinLength Error 
                     </span>                   
                 </div>
           </div>
   
           <div class="form-group">
-              <label for="name">Student Email</label>
-              <input type="text" class="form-control" formControlName="student_email" 
+              <label for="name">Trainer password</label>
+              <input type="text" class="form-control" formControlName="password" 
                 data-toggle="tooltip" data-placement="right" title="Enter Student Email">
-                <div class="alert alert-danger" *ngIf = "(StudentEmail.touched) && (StudentEmail.invalid)" 
+                <div class="alert alert-danger" *ngIf = "(password.touched) && (password.invalid)" 
                 style="margin-top: 5px;">
-                  <span *ngIf="StudentEmail.errors.required">Student Email is Required</span>
-                    <span *ngIf = "StudentEmail.errors.email"> 
+                  <span *ngIf="password.errors.required">Student Email is Required</span>
+                    <span *ngIf = "password.errors.email"> 
                         Invalid Email Format 
                     </span>                   
                 </div>
           </div>
   
-          <div class="form-group">
-              <label for="branch">Student Branch</label>
+          <!-- <div class="form-group">
+              <label for="branch">Trainer Course</label>
                 <select class="form-control" formControlName="student_branch" data-toggle="tooltip" 
-                      data-placement="right" title="Select Student Branch">
+                      data-placement="right" title="Trainer course">
                     <option value="null">--Select Branch--</option>
-                  <option value="B-Tech">B-Tech</option>
-                  <option value="BCA">BCA</option>
-                  <option value="MCA">MCA</option>
-                  <option value="M-Tech">M-Tech</option>
+                  <option value="Java">Java</option>
+                  <option value="python">python</option>
+                  <option value="C">C</option>
+                  <option value="GO">GO</option>
                 </select>
-          </div>
+          </div> -->
   
           <button type="submit" class="btn btn-success">Submit</button>
       </form>
@@ -52,8 +52,8 @@
   <div class="col-sm-4"></div>
   <div class="col-sm-4">
       <div [hidden]="!submitted">
-         <h4>Student Added SuccessFully!</h4>
-         <button (click)="addStudentForm()" class='btn btn-primary'>Add More Student</button>
+         <h4>Trainer Added SuccessFully!</h4>
+         <button (click)="addStudentForm()" class='btn btn-primary'>Add More Trainer</button>
       </div>      
   </div>
   <div class="col-sm-4"></div>

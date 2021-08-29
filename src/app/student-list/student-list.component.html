@@ -22,7 +22,7 @@
               <tr>
                   <th>Trainer Name</th>
                   <th>Trainer Email</th>
-                  <th>Trainer Branch</th>
+                  <!-- <th>Trainer Branch</th> -->
                   <th>Action</th>
                   
               </tr>
@@ -31,9 +31,9 @@
                <tr *ngFor="let student of students ">
                   <td>{{student.userName}}</td>
                   <td>{{student.password}}</td>
-                  <td>{{student.student_branch||'N/A'}}</td>
-                  <td><button (click)="deleteStudent(student.student_id)" class='btn btn-primary'><i class="fa fa-futboll-0">Delete</i></button>&nbsp;
-                    <button (click)="updateStudent(student.student_id)" class='btn btn-info'
+                  <!-- <td>{{student.student_branch||'N/A'}}</td> -->
+                  <td><button (click)="deleteStudent(student.trainerId)" class='btn btn-primary'><i class="fa fa-futboll-0">Delete</i></button>&nbsp;
+                    <button (click)="updateStudent(student.trainerId)" class='btn btn-info'
                     data-toggle="modal" data-target="#myModal">Update</button>
                   </td>
                 </tr> 
@@ -56,18 +56,18 @@
             <div class="modal-body" *ngFor="let student of studentlist " >
                 <div [hidden]="isupdated">
 
-                    <input type="hidden" class="form-control"  formControlName="student_id" [(ngModel)]="student.student_id">
+                    <input type="hidden" class="form-control"  formControlName="trainerId" [(ngModel)]="student.trainerId">
                             <div class="form-group">
                                 <label for="name">Trainer Name</label>
-                                <input type="text" class="form-control"  formControlName="student_name" [(ngModel)]="student.student_name"  >
+                                <input type="text" class="form-control"  formControlName="userName" [(ngModel)]="student.userName"  >
                             </div>
                     
                             <div class="form-group">
                                 <label for="name">Trainer password</label>
-                                <input type="text" class="form-control" formControlName="student_email" [(ngModel)]="student.student_email">
+                                <input type="text" class="form-control" formControlName="password" [(ngModel)]="student.password">
                             </div>
                     
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label for="name">Trainer course</label>
                                   <select class="form-control" formControlName="student_branch" required>                                   
                                     <option value="Java" [selected]="'B-Tech' == student.student_branch">Java</option>
@@ -75,7 +75,7 @@
                                     <option value="C" [selected]="'MCA' == student.student_branch" >C</option>
                                     <option value="GO" [selected]="'M-Tech' == student.student_branch">GO</option>
                                   </select>                               
-                            </div>                   
+                            </div>                    -->
                   </div>  
                   <div [hidden]="!isupdated">
                       <h4>Student Detail Updated!</h4>
